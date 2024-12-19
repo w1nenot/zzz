@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="/авто и рег/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper fadeInDown">
+            <div id="formContent">
+                <!-- Заголовки вкладок -->
+                <h2 class="inactive"><a href="login.html">Вход</a></h2>
+                <h2 class="active underlineHover"><a>Регистрация</a></h2>
+        
+        
+                <!-- Форма регистрации -->
+                <form id="registerForm">
+                    <input type="text" id="username" class="fadeIn second" name="login" placeholder="Имя пользователя" required>
+                    <input type="text" id="password" class="fadeIn third" name="login" placeholder="Пароль" required>
+                    <input type="submit" class="fadeIn fourth" value="Зарегистрироваться">
+                </form>
+        
+                <!-- Напомнить пароль -->
+                <div id="formFooter">
+                    <a class="underlineHover" href="#">Забыл пароль?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Сохраняем данные в Local Storage
+            localStorage.setItem(username, password);
+            alert('Регистрация успешна! Вы можете войти в систему.');
+            window.location.href = 'login.html'; // Перенаправление на страницу авторизации
+        });
+    </script>
+</body>
+</html>
+

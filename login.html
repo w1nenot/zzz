@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="/авто и рег/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper fadeInDown">
+            <div id="formContent">
+              <!-- Заголовки вкладок -->
+              <h2 class="active"><a>Вход</a></h2>
+              <h2 class="inactive"><a href="register.html" class="inactive underlineHover">Регистрация</a></h2>
+          
+              
+          
+              <!-- Форма входа -->
+              <form id="loginForm">
+                <input type="text" id="loginUsername" class="fadeIn second" name="login" placeholder="Имя пользователя">
+                <input type="text" id="loginPassword" class="fadeIn third" name="login" placeholder="Пароль">
+                <input type="submit" class="fadeIn fourth" value="Войти">
+              </form>
+        
+              <!-- Напомнить пароль -->
+              <div id="formFooter">
+                <a class="underlineHover" href="#">Забыл пароль?</a>
+              </div>
+          
+            </div>
+          </div>
+    
+        </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+
+            // Проверяем данные в Local Storage
+            const storedPassword = localStorage.getItem(username);
+            if (storedPassword && storedPassword === password) {
+                alert('Авторизация успешна!');
+                // Здесь можно перенаправить пользователя на другую страницу
+                window.location.href = 'http://127.0.0.1:5500/index.html';
+            } else {
+                alert('Неверное имя пользователя или пароль.');
+            }
+        });
+    </script>
+
+
+     
+</body>
+</html>
